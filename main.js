@@ -23,7 +23,7 @@ app.post("/upload", upload.none(), (req, res) => {
   const existingNote = notes.find((note) => note.title === noteName);
 
   if (existingNote) {
-    return res.status(400).json({ error: "Нотатка з таким ім'ям вже існує" });
+    return res.status(400).end();
   }
 
   notes.push({ title: noteName, text: noteText });
